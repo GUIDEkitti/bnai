@@ -18,6 +18,11 @@ include("config.php");
 
 <body>
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFZHAHvKxA+Nj6K+nW7DgL+5kseR2EjlHaN3vRY8nNFmGAGzr68FO5d8Mh"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
