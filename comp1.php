@@ -17,7 +17,7 @@ if (!$conn->set_charset("utf8")) {
     exit();
 }
 
-if (isset($_GET)) {
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     $result = mysqli_query($conn, "SELECT * FROM bnai_db");
 
