@@ -2,19 +2,38 @@
 
 include("conn.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $sql = "SELECT * FROM bnai_db";
-    $result = $conn->query($sql);
+header("Access-Control-Allow-Origin: *");
 
-    if ($result->num_rows > 0) {
-        $links = array();
-        while ($row = $result->fetch_assoc()) {
-            $links[] = $row;
-        }
-        echo json_encode($links);
-    } else {
-        echo json_encode([]);
-    }
+if (!$conn) {
+    echo "Error: Unable to connect to MySQL." . PHP_EOL;
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+
+    exit;
 }
 
-$conn->close();
+if (!$conn->set_charset("utf8")) {
+    printf("Error loading character set utf8: %s\n", $link->error);
+    exit();
+}
+
+if (isset($_GET)) {
+
+    $result = mysqli_query($conn, "SELECT * FROM bnai_db");
+
+    if ($result) {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $output[] = $row;
+        }    // while
+
+        echo json_encode($output);
+    } else {
+        echo "Error 401";
+    }
+} else {
+    echo "Error 402";
+}
+
+
+mysqli_close($conn);

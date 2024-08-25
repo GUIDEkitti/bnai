@@ -1,8 +1,10 @@
 <?php
+
 $servername = "localhost";
 $username = "chanvat4_chanvat4";
 $password = "sObQ8NyKn9";
 $dbname = "chanvat4_geoloc";
+
 
 $servername = "localhost";
 $username = "root";
