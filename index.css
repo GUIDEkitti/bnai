@@ -14,10 +14,21 @@
 
 .text-green {
   text-decoration: none;
-  color: black;
+  color: #198754;
 }
 
 .text-green:hover {
   color: #198754;
 }
 
+.text-green:active {
+  color: #198754;
+}
+
+.text-green::placeholder {
+  color: black;
+}
+
+.BGlightgreen{
+  background-color: #b6f6d8;
+}

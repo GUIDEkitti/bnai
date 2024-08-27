@@ -2,7 +2,32 @@
 
 include("conn.php");
 
-header("Access-Control-Allow-Origin: *");
+$sql = "SELECT * FROM bnai_db";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table class='table'>";
+    echo "<thead><tr><th>ผลิตภัณฑ์</th><th>คุณสมบัติ</th><th>ภาพประกอบ</th></tr></thead>";
+    echo "<tbody>";
+
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["ProName"] . "</td>";
+        echo "<td>" . $row["ProDescription"] . "</td>";
+        echo "<td><img src='" . $row["ProLink"] . "' alt='" . $row["ProName"] . "' style='width:200px; height: 200px;'></td>";
+        echo "</tr>";
+    }
+
+    echo "</tbody>";
+    echo "</table>";
+} else {
+    echo "No products found.";
+}
+
+
+mysqli_close($conn);
+
+/* header("Access-Control-Allow-Origin: *");
 
 if (!$conn) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -33,7 +58,4 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     }
 } else {
     echo "Error 402";
-}
-
-
-mysqli_close($conn);
+} */

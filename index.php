@@ -21,11 +21,19 @@ include("config.php");
 
     <?php include_once("header.php"); ?>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <p>BNAI แชมพูออแกนิค สูตรมะกรูด</p>
+    <div class="container mt-3">
+        <p>
+            <b>BNAI แชมพูออแกนิค สูตรมะกรูด</b>
+        </p>
     </div>
 
+    <div class="container mt-3">
+        <?php include_once("comp1.php"); ?>
+    </div>
 
+    <div class="container mt-3 BGlightgreen">
+        <?php include_once("footer.php"); ?>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFZHAHvKxA+Nj6K+nW7DgL+5kseR2EjlHaN3vRY8nNFmGAGzr68FO5d8Mh"
